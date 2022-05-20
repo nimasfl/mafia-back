@@ -5,6 +5,6 @@ import { TypeormConfig } from '../config/typeorm.config';
 import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [AuthModule, TypeOrmModule.forRoot(TypeormConfig), PassportModule.register({ session: true })],
+  imports: [AuthModule, TypeOrmModule.forRoot(TypeormConfig)],
 })
 export class AppModule {}

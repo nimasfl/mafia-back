@@ -12,6 +12,7 @@ export const SetSessionManager = (app: INestApplication) => {
     session({
       cookie: {
         maxAge: 60000 * 60 * 24 * 30 * 6,
+        sameSite: 'none',
       },
       secret: process.env.SESSION_SECRET,
       resave: false,

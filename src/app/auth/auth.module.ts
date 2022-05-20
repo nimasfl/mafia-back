@@ -5,9 +5,10 @@ import { GoogleStrategy } from './strategies/google.strategy';
 import { SessionSerializer } from './services/session-serializer.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Session } from './entities/session.entity';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Session])],
+  imports: [TypeOrmModule.forFeature([Session]), PassportModule.register({ session: true })],
   controllers: [AuthController],
   providers: [AuthService, GoogleStrategy, SessionSerializer],
 })

@@ -1,7 +1,6 @@
 import { applyDecorators, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { SessionGuard } from './session.guard';
+import { GoogleAuthGuard } from './google-auth.guard';
 
 export const UseGoogleGuard = () => {
-  return applyDecorators(UseGuards(AuthGuard('google'), SessionGuard));
+  return applyDecorators(UseGuards(GoogleAuthGuard));
 };
