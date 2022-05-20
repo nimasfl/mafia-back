@@ -2,6 +2,7 @@ import { Controller, Get, Req } from '@nestjs/common';
 import { UseGoogleGuard } from './guards/use-google.guard';
 import { AuthService } from './auth.service';
 import { Request } from 'express';
+import passport from 'passport';
 
 @Controller('auth')
 export class AuthController {
@@ -14,12 +15,12 @@ export class AuthController {
   @Get('/google/callback')
   @UseGoogleGuard()
   async googleAuthRedirect(@Req() req: Request) {
-    return this.authService.googleLogin(req);
+    console.log(req);
+    // return this.authService.googleLogin(req);
   }
 
-  @UseGoogleGuard()
   @Get('/test')
   test(@Req() req: Request) {
-    return req.user;
+    return passport.authenticate('google');
   }
 }

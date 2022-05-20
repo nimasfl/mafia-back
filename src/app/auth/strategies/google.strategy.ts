@@ -14,8 +14,8 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 
   async validate(accessToken: string, refreshToken: string, profile: any, done: VerifyCallback) {
     console.log(accessToken);
-    console.log(refreshToken);
-    console.log(profile);
+    // console.log(refreshToken);
+    // console.log(profile);
     const user = {
       name: profile.displayName,
       email: profile.emails[0].value,
