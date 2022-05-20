@@ -1,6 +1,6 @@
 import './bootstrap/set-environment';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import { SetCors } from './bootstrap/set-cors';
 import { SetHelmet } from './bootstrap/set-helmet';
 import { SetSwagger } from './bootstrap/set-swagger';
