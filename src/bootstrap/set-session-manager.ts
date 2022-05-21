@@ -2,7 +2,7 @@ import { INestApplication } from '@nestjs/common';
 import * as session from 'express-session';
 import { TypeormStore } from 'connect-typeorm';
 import * as passport from 'passport';
-import { Session } from '../app/auth/entities/session.entity';
+import { Session } from '../entities/session.entity';
 import { getRepository } from 'typeorm';
 
 export const SetSessionManager = (app: INestApplication) => {
@@ -15,6 +15,7 @@ export const SetSessionManager = (app: INestApplication) => {
       },
       secret: process.env.SESSION_SECRET,
       resave: false,
+      rolling: true,
       saveUninitialized: false,
       store: new TypeormStore().connect(sessionRepo),
     }),
